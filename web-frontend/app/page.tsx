@@ -1,102 +1,668 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import {
+  Rocket,
+  Users,
+  TrendingUp,
+  Shield,
+  Twitter,
+  MessageCircle,
+  Github,
+  PieChart,
+  BarChart3,
+  Activity,
+} from "lucide-react"
+import { useEffect, useState } from "react"
+import Image from "next/image"
+
+export default function NgabOwiHome() {
+  const [scrollY, setScrollY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-background dark">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse"
+          style={{ transform: `translateY(${scrollY * 0.1}px)` }}></div>
+        <div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse delay-1000"
+          style={{ transform: `translateY(${scrollY * -0.15}px)` }}></div>
+        <div
+          className="absolute top-1/2 left-1/2 w-48 h-48 bg-primary/3 rounded-full blur-2xl animate-pulse delay-500"
+          style={{
+            transform: `translate(-50%, -50%) translateY(${scrollY * 0.08}px)`,
+          }}></div>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Header */}
+      <header className="bg-transparent backdrop-blur-md sticky top-0 z-50 border-b border-border/20">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/50 animate-pulse">
+              <Image
+                src="/ngabowi.jpg"
+                alt="Ngabowi"
+                width={300}
+                height={300}
+                className="rounded-full object-cover w-full h-full"
+              />
+            </div>
+            <span className="font-bold text-xl text-foreground">Ngab Owi</span>
+          </div>
+          <nav className="hidden md:flex items-center space-x-6">
+            <a
+              href="#tokenomics"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">
+              Tokenomics
+            </a>
+            <a
+              href="#roadmap"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">
+              Roadmap
+            </a>
+            <a
+              href="#community"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">
+              Community
+            </a>
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 hover:scale-105">
+              Connect Wallet
+            </Button>
+          </nav>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </header>
+
+      {/* Hero Section */}
+      <section className="py-20 px-4 relative overflow-hidden z-10">
+        <div className="container mx-auto text-center relative z-10">
+          <div className="mb-8">
+            <Badge className="mb-4 bg-secondary/90 text-white border-secondary/30 shadow-lg shadow-secondary/20 animate-bounce">
+              The Ultimate Indonesian Meme Coin
+            </Badge>
+            <h1
+              className="text-4xl md:text-6xl font-bold text-white mb-6 text-balance animate-fade-in-up drop-shadow-lg"
+              style={{ transform: `translateY(${scrollY * -0.2}px)` }}>
+              Welcome to{" "}
+              <span className="text-white drop-shadow-lg animate-pulse">
+                Ngab Owi
+              </span>
+            </h1>
+            <p
+              className="text-xl text-white/90 mb-8 max-w-2xl mx-auto text-pretty animate-fade-in-up delay-300 drop-shadow-md"
+              style={{ transform: `translateY(${scrollY * -0.1}px)` }}>
+              Join the most vibrant Indonesian crypto community! Ngab Owi brings
+              together meme culture and Web3 innovation for the ultimate digital
+              experience.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-up delay-500">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/40 hover:shadow-primary/60 transition-all duration-300 hover:scale-105 animate-pulse">
+              <Rocket className="mr-2 h-5 w-5" />
+              Buy $NGAB
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary text-white bg-primary/20 hover:bg-primary hover:text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+              Join Community
+            </Button>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto animate-fade-in-up delay-700">
+            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <CardContent className="p-6 text-center">
+                <div className="text-2xl font-bold text-primary mb-2 animate-pulse">
+                  10,000+
+                </div>
+                <div className="text-muted-foreground">Holders</div>
+              </CardContent>
+            </Card>
+            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <CardContent className="p-6 text-center">
+                <div className="text-2xl font-bold text-primary mb-2 animate-pulse delay-300">
+                  $2.5M
+                </div>
+                <div className="text-muted-foreground">Market Cap</div>
+              </CardContent>
+            </Card>
+            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
+              <CardContent className="p-6 text-center">
+                <div className="text-2xl font-bold text-primary mb-2 animate-pulse delay-500">
+                  24/7
+                </div>
+                <div className="text-muted-foreground">Community Active</div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 relative z-10">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Token Distribution
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Visual breakdown of our fair and transparent token allocation
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Pie Chart Diagram */}
+            <div className="relative">
+              <div className="w-80 h-80 mx-auto relative">
+                <svg
+                  viewBox="0 0 200 200"
+                  className="w-full h-full transform -rotate-90">
+                  {/* Community 40% */}
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    fill="none"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="20"
+                    strokeDasharray="201 503"
+                    strokeDashoffset="0"
+                    className="animate-pulse"
+                  />
+                  {/* Liquidity 30% */}
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    fill="none"
+                    stroke="hsl(var(--secondary))"
+                    strokeWidth="20"
+                    strokeDasharray="151 503"
+                    strokeDashoffset="-201"
+                    className="animate-pulse delay-300"
+                  />
+                  {/* Development 20% */}
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    fill="none"
+                    stroke="hsl(var(--accent))"
+                    strokeWidth="20"
+                    strokeDasharray="100 503"
+                    strokeDashoffset="-352"
+                    className="animate-pulse delay-500"
+                  />
+                  {/* Team 10% */}
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    fill="none"
+                    stroke="hsl(var(--muted))"
+                    strokeWidth="20"
+                    strokeDasharray="50 503"
+                    strokeDashoffset="-452"
+                    className="animate-pulse delay-700"
+                  />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <PieChart className="w-8 h-8 text-primary mx-auto mb-2" />
+                    <div className="text-sm font-semibold text-foreground">
+                      Total Supply
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      1B $NGAB
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Legend */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-primary/20 hover:bg-card/70 transition-all duration-300">
+                <div className="w-4 h-4 rounded-full bg-primary animate-pulse"></div>
+                <div className="flex-1">
+                  <div className="font-semibold text-foreground">
+                    Community (40%)
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    400M tokens for rewards & airdrops
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-secondary/20 hover:bg-card/70 transition-all duration-300">
+                <div className="w-4 h-4 rounded-full bg-secondary animate-pulse delay-300"></div>
+                <div className="flex-1">
+                  <div className="font-semibold text-foreground">
+                    Liquidity (30%)
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    300M tokens locked for trading
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-accent/20 hover:bg-card/70 transition-all duration-300">
+                <div className="w-4 h-4 rounded-full bg-accent animate-pulse delay-500"></div>
+                <div className="flex-1">
+                  <div className="font-semibold text-foreground">
+                    Development (20%)
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    200M tokens for platform growth
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-3 p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-muted/20 hover:bg-card/70 transition-all duration-300">
+                <div className="w-4 h-4 rounded-full bg-muted animate-pulse delay-700"></div>
+                <div className="flex-1">
+                  <div className="font-semibold text-foreground">
+                    Team (10%)
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    100M tokens with 2-year vesting
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tokenomics Section */}
+      <section id="tokenomics" className="py-20 px-4 bg-muted/30 relative z-10">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-72 h-72 bg-primary/3 rounded-full blur-3xl animate-pulse delay-500"></div>
+        </div>
+
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in-up">
+              Tokenomics
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
+              Fair and transparent distribution designed for long-term community
+              growth
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up">
+              <CardHeader>
+                <CardTitle className="flex items-center text-primary">
+                  <Users className="mr-2 h-5 w-5" />
+                  Community
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold mb-2 text-primary">40%</div>
+                <CardDescription>
+                  Reserved for community rewards and airdrops
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up delay-200">
+              <CardHeader>
+                <CardTitle className="flex items-center text-primary">
+                  <TrendingUp className="mr-2 h-5 w-5" />
+                  Liquidity
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold mb-2 text-primary">30%</div>
+                <CardDescription>
+                  Locked liquidity for stable trading
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up delay-300">
+              <CardHeader>
+                <CardTitle className="flex items-center text-primary">
+                  <Rocket className="mr-2 h-5 w-5" />
+                  Development
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold mb-2 text-primary">20%</div>
+                <CardDescription>
+                  Platform development and partnerships
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up delay-400">
+              <CardHeader>
+                <CardTitle className="flex items-center text-primary">
+                  <Shield className="mr-2 h-5 w-5" />
+                  Team
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold mb-2 text-primary">10%</div>
+                <CardDescription>
+                  Team allocation with 2-year vesting
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 relative z-10">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Price Performance
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Track our journey to the moon with real-time metrics
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Chart Visualization */}
+            <div className="lg:col-span-2">
+              <Card className="bg-card/90 border-border backdrop-blur-sm p-6">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center space-x-2">
+                    <BarChart3 className="w-5 h-5 text-primary" />
+                    <span className="font-semibold text-foreground">
+                      $NGAB Price Chart
+                    </span>
+                  </div>
+                  <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
+                    +245% (24h)
+                  </Badge>
+                </div>
+
+                {/* Animated Chart Bars */}
+                <div className="h-48 flex items-end justify-between space-x-2">
+                  {[20, 35, 45, 30, 60, 80, 95, 75, 90, 100, 85, 120].map(
+                    (height, index) => (
+                      <div
+                        key={index}
+                        className="bg-gradient-to-t from-primary/60 to-primary rounded-t-sm flex-1 animate-pulse"
+                        style={{
+                          height: `${height}%`,
+                          animationDelay: `${index * 100}ms`,
+                          transform: `translateY(${scrollY * 0.02}px)`,
+                        }}></div>
+                    )
+                  )}
+                </div>
+
+                <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                  <span>Jan</span>
+                  <span>Feb</span>
+                  <span>Mar</span>
+                  <span>Apr</span>
+                  <span>May</span>
+                  <span>Jun</span>
+                </div>
+              </Card>
+            </div>
+
+            {/* Metrics */}
+            <div className="space-y-4">
+              <Card className="bg-card/90 border-border backdrop-blur-sm p-4 hover:bg-card/95 transition-all duration-300 hover:scale-105">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-sm text-muted-foreground">
+                      Current Price
+                    </div>
+                    <div className="text-xl font-bold text-primary animate-pulse">
+                      $0.00245
+                    </div>
+                  </div>
+                  <Activity className="w-8 h-8 text-green-400" />
+                </div>
+              </Card>
+
+              <Card className="bg-card/90 border-border backdrop-blur-sm p-4 hover:bg-card/95 transition-all duration-300 hover:scale-105">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-sm text-muted-foreground">
+                      24h Volume
+                    </div>
+                    <div className="text-xl font-bold text-primary animate-pulse delay-200">
+                      $1.2M
+                    </div>
+                  </div>
+                  <TrendingUp className="w-8 h-8 text-primary" />
+                </div>
+              </Card>
+
+              <Card className="bg-card/90 border-border backdrop-blur-sm p-4 hover:bg-card/95 transition-all duration-300 hover:scale-105">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-sm text-muted-foreground">
+                      All Time High
+                    </div>
+                    <div className="text-xl font-bold text-primary animate-pulse delay-300">
+                      $0.00892
+                    </div>
+                  </div>
+                  <Rocket className="w-8 h-8 text-secondary" />
+                </div>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Roadmap Section */}
+      <section id="roadmap" className="py-20 px-4 relative z-10">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in-up">
+              Roadmap
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
+              Our journey to becoming the top Indonesian meme coin
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up">
+              <CardHeader>
+                <Badge className="w-fit bg-primary/90 text-white border-primary/30 mb-2 shadow-lg shadow-primary/20">
+                  Phase 1 - Complete
+                </Badge>
+                <CardTitle className="text-primary">
+                  Launch & Community
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>✅ Token Launch</li>
+                  <li>✅ Community Building</li>
+                  <li>✅ Social Media Presence</li>
+                  <li>✅ Initial Partnerships</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/90 border-primary/50 backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 animate-fade-in-up delay-200">
+              <CardHeader>
+                <Badge className="w-fit bg-secondary/90 text-white border-secondary/30 mb-2 shadow-lg shadow-secondary/20 animate-pulse">
+                  Phase 2 - Current
+                </Badge>
+                <CardTitle className="text-primary">
+                  Growth & Expansion
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>🔄 DEX Listings</li>
+                  <li>🔄 Influencer Partnerships</li>
+                  <li>🔄 Meme Contests</li>
+                  <li>🔄 Mobile App Development</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up delay-400">
+              <CardHeader>
+                <Badge className="w-fit bg-muted/80 text-white border-muted mb-2">
+                  Phase 3 - Upcoming
+                </Badge>
+                <CardTitle className="text-primary">
+                  Ecosystem & Utility
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>⏳ NFT Marketplace</li>
+                  <li>⏳ Staking Platform</li>
+                  <li>⏳ Gaming Integration</li>
+                  <li>⏳ Major Exchange Listings</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Community Section */}
+      <section id="community" className="py-20 px-4 bg-muted/30 relative z-10">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/3 rounded-full blur-3xl animate-pulse"></div>
+        </div>
+
+        <div className="container mx-auto text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in-up">
+            Join Our Community
+          </h2>
+          <p className="text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in-up delay-200">
+            Connect with thousands of Ngab Owi enthusiasts and stay updated with
+            the latest news
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in-up delay-300">
+            <Button
+              size="lg"
+              className="bg-[#1DA1F2] hover:bg-[#1DA1F2]/90 text-white shadow-lg shadow-[#1DA1F2]/30 hover:shadow-[#1DA1F2]/50 transition-all duration-300 hover:scale-105">
+              <Twitter className="mr-2 h-5 w-5" />
+              Follow on Twitter
+            </Button>
+            <Button
+              size="lg"
+              className="bg-[#0088cc] hover:bg-[#0088cc]/90 text-white shadow-lg shadow-[#0088cc]/30 hover:shadow-[#0088cc]/50 transition-all duration-300 hover:scale-105">
+              <MessageCircle className="mr-2 h-5 w-5" />
+              Join Telegram
+            </Button>
+            <Button
+              size="lg"
+              className="bg-[#5865F2] hover:bg-[#5865F2]/90 text-white shadow-lg shadow-[#5865F2]/30 hover:shadow-[#5865F2]/50 transition-all duration-300 hover:scale-105">
+              <MessageCircle className="mr-2 h-5 w-5" />
+              Discord Server
+            </Button>
+          </div>
+
+          <Card className="max-w-2xl mx-auto bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up delay-500">
+            <CardHeader>
+              <CardTitle className="text-primary">
+                Live Community Stats
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                  <div className="text-2xl font-bold text-primary animate-pulse">
+                    15.2K
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Twitter Followers
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-primary animate-pulse delay-200">
+                    8.7K
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Telegram Members
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-primary animate-pulse delay-300">
+                    5.1K
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Discord Users
+                  </div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-primary animate-pulse delay-500">
+                    24/7
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    Active Chat
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 px-4 border-t border-border/30 bg-card/30 backdrop-blur-sm relative z-10">
+        <div className="container mx-auto text-center">
+          <div className="flex items-center justify-center space-x-2 mb-6">
+          <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/50 animate-pulse">
+              <Image
+                src="/ngabowi.jpg"
+                alt="Ngabowi"
+                width={300}
+                height={300}
+                className="rounded-full object-cover w-full h-full"
+              />
+            </div>
+            <span className="font-bold text-xl text-foreground">Ngab Owi</span>
+          </div>
+          <p className="text-muted-foreground mb-4">
+            The ultimate Indonesian meme coin bringing Web3 to the masses
+          </p>
+          <div className="flex justify-center space-x-6">
+            <a
+              href="#"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110">
+              <Twitter className="h-5 w-5" />
+            </a>
+            <a
+              href="#"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110">
+              <MessageCircle className="h-5 w-5" />
+            </a>
+            <a
+              href="#"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110">
+              <Github className="h-5 w-5" />
+            </a>
+          </div>
+          <div className="mt-8 pt-8 border-t border-border/30 text-sm text-muted-foreground">
+            © 2024 Ngab Owi. All rights reserved. | Not financial advice.
+          </div>
+        </div>
       </footer>
     </div>
   );
