@@ -1,8 +1,14 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Rocket,
   Users,
@@ -14,18 +20,18 @@ import {
   PieChart,
   BarChart3,
   Activity,
-} from "lucide-react"
-import { useEffect, useState } from "react"
-import Image from "next/image"
+} from "lucide-react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function NgabOwiHome() {
-  const [scrollY, setScrollY] = useState(0)
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background dark">
@@ -81,13 +87,37 @@ export default function NgabOwiHome() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="py-20 px-4 relative overflow-hidden z-10">
+      <section className="h-screen py-20 px-4 relative overflow-hidden z-10 flex items-center justify-center">
         <div className="container mx-auto text-center relative z-10">
           <div className="mb-8">
             <Badge className="mb-4 bg-secondary/90 text-white border-secondary/30 shadow-lg shadow-secondary/20 animate-bounce">
               The Ultimate Indonesian Meme Coin
             </Badge>
+
+            {/* Card melayang flip horizontal */}
+            <div className="flex justify-center mb-8">
+              <div className="w-96 h-96 [perspective:1000px]">
+                <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
+                  {/* Depan */}
+                  <div className="absolute w-full h-full rounded-2xl overflow-hidden shadow-xl shadow-primary/30 backface-hidden">
+                    <img
+                      src="/ngabowi.jpg"
+                      alt="Ngab Owi Meme"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  {/* Belakang */}
+                  <div className="absolute w-full h-full rounded-2xl overflow-hidden shadow-xl shadow-secondary/30 [transform:rotateY(180deg)] backface-hidden">
+                    <img
+                      src="/jkwhmb.jpeg"
+                      alt="Ngab Owi Meme"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <h1
               className="text-4xl md:text-6xl font-bold text-white mb-6 text-balance animate-fade-in-up drop-shadow-lg"
               style={{ transform: `translateY(${scrollY * -0.2}px)` }}>
@@ -115,42 +145,14 @@ export default function NgabOwiHome() {
             <Button
               size="lg"
               variant="outline"
-              className="border-primary text-white bg-primary/20 hover:bg-primary hover:text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+              className="border-primary text-white bg-primary/20 hover:bg-primary cursor-pointer shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:scale-105 backdrop-blur-sm">
               Join Community
             </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto animate-fade-in-up delay-700">
-            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <CardContent className="p-6 text-center">
-                <div className="text-2xl font-bold text-primary mb-2 animate-pulse">
-                  10,000+
-                </div>
-                <div className="text-muted-foreground">Holders</div>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <CardContent className="p-6 text-center">
-                <div className="text-2xl font-bold text-primary mb-2 animate-pulse delay-300">
-                  $2.5M
-                </div>
-                <div className="text-muted-foreground">Market Cap</div>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
-              <CardContent className="p-6 text-center">
-                <div className="text-2xl font-bold text-primary mb-2 animate-pulse delay-500">
-                  24/7
-                </div>
-                <div className="text-muted-foreground">Community Active</div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-4 relative z-10">
+      <section className="py-20 px-4 relative z-10 h-screen">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -390,7 +392,6 @@ export default function NgabOwiHome() {
                   </Badge>
                 </div>
 
-                {/* Animated Chart Bars */}
                 <div className="h-48 flex items-end justify-between space-x-2">
                   {[20, 35, 45, 30, 60, 80, 95, 75, 90, 100, 85, 120].map(
                     (height, index) => (
@@ -406,7 +407,7 @@ export default function NgabOwiHome() {
                   )}
                 </div>
 
-                <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                <div className="flex justify-between text-xs text-muted-foreground mt-3">
                   <span>Jan</span>
                   <span>Feb</span>
                   <span>Mar</span>
@@ -466,7 +467,7 @@ export default function NgabOwiHome() {
       </section>
 
       {/* Roadmap Section */}
-      <section id="roadmap" className="py-20 px-4 relative z-10">
+      <section id="roadmap" className="py-20 px-4 relative z-10 h-screen">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/3 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
@@ -628,7 +629,7 @@ export default function NgabOwiHome() {
       <footer className="py-12 px-4 border-t border-border/30 bg-card/30 backdrop-blur-sm relative z-10">
         <div className="container mx-auto text-center">
           <div className="flex items-center justify-center space-x-2 mb-6">
-          <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/50 animate-pulse">
+            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/50 animate-pulse">
               <Image
                 src="/ngabowi.jpg"
                 alt="Ngabowi"
