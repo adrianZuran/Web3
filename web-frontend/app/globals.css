@@ -3,7 +3,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root { /* Very dark purple-black */ /* Much lighter for better contrast */
+:root {
+  /* Very dark purple-black */ /* Much lighter for better contrast */
   --card: oklch(1 0 0); /* Dark purple card */
   --card-foreground: oklch(0.145 0 0); /* Much lighter text */
   --popover: oklch(1 0 0); /* Dark purple popover */
@@ -52,7 +53,9 @@
   --secondary: oklch(0.269 0 0); /* Brighter accent purple */
   --secondary-foreground: oklch(0.985 0 0); /* Pure white */
   --muted: oklch(0.269 0 0); /* Muted dark purple */
-  --muted-foreground: oklch(0.708 0 0); /* Much lighter muted text for contrast */
+  --muted-foreground: oklch(
+    0.708 0 0
+  ); /* Much lighter muted text for contrast */
   --accent: oklch(0.269 0 0); /* Much brighter accent purple */
   --accent-foreground: oklch(0.985 0 0); /* Pure white */
   --destructive: oklch(0.704 0.191 22.216);
@@ -128,4 +131,37 @@
 .backface-hidden {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden; /* buat Safari */
+}
+
+/* Animasi fade-in-up */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Smooth scrolling untuk paralax */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimasi untuk video background */
+video {
+  will-change: transform;
+  transform-origin: center center;
+}
+
+/* Efek paralax yang lebih smooth */
+.parallax-element {
+  will-change: transform;
+  transform-style: preserve-3d;
 }

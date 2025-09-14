@@ -1,5 +1,5 @@
 "use client";
- 
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -88,6 +88,28 @@ export default function NgabOwiHome() {
       </header>
 
       <section className="h-screen py-20 px-4 relative overflow-hidden z-10 flex items-center justify-center">
+        {/* Video Background dengan Paralax */}
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover parallax-element"
+            style={{
+              transform: `translateY(${scrollY * 0.3}px) scale(1.1)`,
+              filter: "brightness(0.3) contrast(1.2)",
+            }}>
+            <source src="/animasiJokowi.mp4" type="video/mp4" />
+            {/* Fallback jika video tidak tersedia */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/10 to-primary/20"></div>
+          </video>
+
+          {/* Overlay untuk meningkatkan readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+
+        </div>
+
         <div className="container mx-auto text-center relative z-10">
           <div className="mb-8">
             <Badge className="mb-4 bg-secondary/90 text-white border-secondary/30 shadow-lg shadow-secondary/20 animate-bounce">
@@ -100,17 +122,21 @@ export default function NgabOwiHome() {
                 <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
                   {/* Depan */}
                   <div className="absolute w-full h-full rounded-2xl overflow-hidden shadow-xl shadow-primary/30 backface-hidden">
-                    <img
+                    <Image
                       src="/ngabowi.jpg"
                       alt="Ngab Owi Meme"
+                      width={400}
+                      height={400}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   {/* Belakang */}
                   <div className="absolute w-full h-full rounded-2xl overflow-hidden shadow-xl shadow-secondary/30 [transform:rotateY(180deg)] backface-hidden">
-                    <img
+                    <Image
                       src="/jkwhmb.jpeg"
                       alt="Ngab Owi Meme"
+                      width={400}
+                      height={400}
                       className="w-full h-full object-cover"
                     />
                   </div>
