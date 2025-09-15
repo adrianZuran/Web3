@@ -149,18 +149,15 @@
   animation: fade-in-up 0.8s ease-out forwards;
 }
 
-/* Smooth scrolling untuk paralax */
 html {
   scroll-behavior: smooth;
 }
 
-/* Optimasi untuk video background */
 video {
   will-change: transform;
   transform-origin: center center;
 }
 
-/* Efek paralax yang lebih smooth */
 .parallax-element {
   will-change: transform;
   transform-style: preserve-3d;

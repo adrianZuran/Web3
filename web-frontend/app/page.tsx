@@ -97,8 +97,8 @@ export default function NgabOwiHome() {
             playsInline
             className="absolute inset-0 w-full h-full object-cover parallax-element"
             style={{
-              transform: `translateY(${scrollY * 0.3}px) scale(1.1)`,
-              filter: "brightness(0.3) contrast(1.2)",
+              transform: `translateY(${scrollY * 0.3}px) scale(1)`,
+              filter: "brightness(0.5) contrast(1.2)",
             }}>
             <source src="/animasiJokowi.mp4" type="video/mp4" />
             {/* Fallback jika video tidak tersedia */}
@@ -107,7 +107,6 @@ export default function NgabOwiHome() {
 
           {/* Overlay untuk meningkatkan readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
-
         </div>
 
         <div className="container mx-auto text-center relative z-10">
@@ -178,133 +177,35 @@ export default function NgabOwiHome() {
         </div>
       </section>
 
-      <section className="py-20 px-4 relative z-10 h-screen">
+      <section className="py-20 px-4 relative z-10 h-screen flex items-center">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Token Distribution
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6">
+              What’s Ngab Owi?
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
               Visual breakdown of our fair and transparent token allocation
             </p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Pie Chart Diagram */}
-            <div className="relative">
-              <div className="w-80 h-80 mx-auto relative">
-                <svg
-                  viewBox="0 0 200 200"
-                  className="w-full h-full transform -rotate-90">
-                  {/* Community 40% */}
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="80"
-                    fill="none"
-                    stroke="hsl(var(--primary))"
-                    strokeWidth="20"
-                    strokeDasharray="201 503"
-                    strokeDashoffset="0"
-                    className="animate-pulse"
-                  />
-                  {/* Liquidity 30% */}
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="80"
-                    fill="none"
-                    stroke="hsl(var(--secondary))"
-                    strokeWidth="20"
-                    strokeDasharray="151 503"
-                    strokeDashoffset="-201"
-                    className="animate-pulse delay-300"
-                  />
-                  {/* Development 20% */}
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="80"
-                    fill="none"
-                    stroke="hsl(var(--accent))"
-                    strokeWidth="20"
-                    strokeDasharray="100 503"
-                    strokeDashoffset="-352"
-                    className="animate-pulse delay-500"
-                  />
-                  {/* Team 10% */}
-                  <circle
-                    cx="100"
-                    cy="100"
-                    r="80"
-                    fill="none"
-                    stroke="hsl(var(--muted))"
-                    strokeWidth="20"
-                    strokeDasharray="50 503"
-                    strokeDashoffset="-452"
-                    className="animate-pulse delay-700"
-                  />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <PieChart className="w-8 h-8 text-primary mx-auto mb-2" />
-                    <div className="text-sm font-semibold text-foreground">
-                      Total Supply
-                    </div>
-                    <div className="text-xs text-muted-foreground">
-                      1B $NGAB
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div className="gap-2 text-center">
+            {/* Gambar */}
+            <div className="flex justify-center">
+            <img 
+          src="/yondaktau-removebg-preview.png" 
+          alt="Ngab Owi Illustration" 
+          className="w-72 md:w-96 drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+        />
             </div>
 
-            {/* Legend */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3 p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-primary/20 hover:bg-card/70 transition-all duration-300">
-                <div className="w-4 h-4 rounded-full bg-primary animate-pulse"></div>
-                <div className="flex-1">
-                  <div className="font-semibold text-foreground">
-                    Community (40%)
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    400M tokens for rewards & airdrops
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3 p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-secondary/20 hover:bg-card/70 transition-all duration-300">
-                <div className="w-4 h-4 rounded-full bg-secondary animate-pulse delay-300"></div>
-                <div className="flex-1">
-                  <div className="font-semibold text-foreground">
-                    Liquidity (30%)
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    300M tokens locked for trading
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3 p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-accent/20 hover:bg-card/70 transition-all duration-300">
-                <div className="w-4 h-4 rounded-full bg-accent animate-pulse delay-500"></div>
-                <div className="flex-1">
-                  <div className="font-semibold text-foreground">
-                    Development (20%)
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    200M tokens for platform growth
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3 p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-muted/20 hover:bg-card/70 transition-all duration-300">
-                <div className="w-4 h-4 rounded-full bg-muted animate-pulse delay-700"></div>
-                <div className="flex-1">
-                  <div className="font-semibold text-foreground">
-                    Team (10%)
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    100M tokens with 2-year vesting
-                  </div>
-                </div>
-              </div>
+            {/* Teks */}
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">Ngab Owi</h3>
+              <p className="text-muted-foreground leading-relaxed text-lg max-w-2xl mx-auto">
+                Ngab Owi adalah konsep sederhana tapi powerful yang dirancang
+                untuk menciptakan ekosistem yang adil, transparan, dan mudah
+                dipahami oleh semua orang. Tujuannya adalah memastikan setiap
+                orang bisa berpartisipasi dengan nyaman.
+              </p>
             </div>
           </div>
         </div>
