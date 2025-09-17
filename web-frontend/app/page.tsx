@@ -76,9 +76,9 @@ export default function NgabOwiHome() {
               Roadmap
             </a>
             <a
-              href="#community"
+              href="#whatowi"
               className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-105">
-              Community
+              What’s Ngab
             </a>
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all duration-300 hover:scale-105">
               Connect Wallet
@@ -115,7 +115,6 @@ export default function NgabOwiHome() {
               The Ultimate Indonesian Meme Coin
             </Badge>
 
-            {/* Card melayang flip horizontal */}
             <div className="flex justify-center mb-8">
               <div className="w-96 h-96 [perspective:1000px]">
                 <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] hover:[transform:rotateY(180deg)]">
@@ -177,7 +176,7 @@ export default function NgabOwiHome() {
         </div>
       </section>
 
-      <section className="py-20 px-4 relative z-10 h-screen flex items-center">
+      <section className="py-20 px-4 relative z-10 h-screen flex items-center" id="whatowi">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6">
@@ -190,11 +189,11 @@ export default function NgabOwiHome() {
           <div className="gap-2 text-center">
             {/* Gambar */}
             <div className="flex justify-center">
-            <img 
-          src="/yondaktau-removebg-preview.png" 
-          alt="Ngab Owi Illustration" 
-          className="w-72 md:w-96 drop-shadow-2xl hover:scale-105 transition-transform duration-300"
-        />
+              <img
+                src="/yondaktau-removebg-preview.png"
+                alt="Ngab Owi Illustration"
+                className="w-72 md:w-96 drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+              />
             </div>
 
             {/* Teks */}
