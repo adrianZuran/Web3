@@ -176,9 +176,12 @@ export default function NgabOwiHome() {
         </div>
       </section>
 
-      <section className="py-20 px-4 relative z-10 h-screen flex items-center" id="whatowi">
+      <section
+        className="py-20 px-4 relative z-10 min-h-screen flex items-center"
+        id="whatowi">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          {/* Judul */}
+          <div className="text-center mb-6">
             <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6">
               What’s Ngab Owi?
             </h2>
@@ -186,7 +189,9 @@ export default function NgabOwiHome() {
               Visual breakdown of our fair and transparent token allocation
             </p>
           </div>
-          <div className="gap-2 text-center">
+
+          {/* Gambar + Teks */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16">
             {/* Gambar */}
             <div className="flex justify-center">
               <img
@@ -195,11 +200,11 @@ export default function NgabOwiHome() {
                 className="w-72 md:w-96 drop-shadow-2xl hover:scale-105 transition-transform duration-300"
               />
             </div>
-
-            {/* Teks */}
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">Ngab Owi</h3>
-              <p className="text-muted-foreground leading-relaxed text-lg max-w-2xl mx-auto">
+              <div className="text-center lg:text-left">
+              <h1 className="text-white text-2xl md:text-3xl font-bold mb-4">
+                Kenapa Milih <i className="text-yellow-300">Ngab Owi?</i>
+              </h1>
+              <p className="text-muted-foreground leading-relaxed text-lg max-w-2xl mx-auto lg:mx-0">
                 Ngab Owi adalah konsep sederhana tapi powerful yang dirancang
                 untuk menciptakan ekosistem yang adil, transparan, dan mudah
                 dipahami oleh semua orang. Tujuannya adalah memastikan setiap
@@ -207,26 +212,8 @@ export default function NgabOwiHome() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Tokenomics Section */}
-      <section id="tokenomics" className="py-20 px-4 bg-muted/30 relative z-10">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 right-0 w-72 h-72 bg-primary/3 rounded-full blur-3xl animate-pulse delay-500"></div>
-        </div>
-
-        <div className="container mx-auto relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in-up">
-              Tokenomics
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto animate-fade-in-up delay-200">
-              Fair and transparent distribution designed for long-term community
-              growth
-            </p>
-          </div>
-
+          {/* Grid Card */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up">
               <CardHeader>
