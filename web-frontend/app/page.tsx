@@ -1,5 +1,7 @@
 "use client";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -26,6 +28,10 @@ import Image from "next/image";
 
 export default function NgabOwiHome() {
   const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    AOS.init({ duration: 800, once: true });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -200,7 +206,7 @@ export default function NgabOwiHome() {
                 className="w-72 md:w-96 drop-shadow-2xl hover:scale-105 transition-transform duration-300"
               />
             </div>
-              <div className="text-center lg:text-left">
+            <div className="text-center lg:text-left">
               <h1 className="text-white text-2xl md:text-3xl font-bold mb-4">
                 Kenapa Milih <i className="text-yellow-300">Ngab Owi?</i>
               </h1>
@@ -278,104 +284,21 @@ export default function NgabOwiHome() {
         </div>
       </section>
 
-      <section className="py-20 px-4 relative z-10">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Price Performance
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Track our journey to the moon with real-time metrics
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Chart Visualization */}
-            <div className="lg:col-span-2">
-              <Card className="bg-card/90 border-border backdrop-blur-sm p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center space-x-2">
-                    <BarChart3 className="w-5 h-5 text-primary" />
-                    <span className="font-semibold text-foreground">
-                      $NGAB Price Chart
-                    </span>
-                  </div>
-                  <Badge className="bg-green-500/20 text-green-400 border-green-500/30">
-                    +245% (24h)
-                  </Badge>
-                </div>
-
-                <div className="h-48 flex items-end justify-between space-x-2">
-                  {[20, 35, 45, 30, 60, 80, 95, 75, 90, 100, 85, 120].map(
-                    (height, index) => (
-                      <div
-                        key={index}
-                        className="bg-gradient-to-t from-primary/60 to-primary rounded-t-sm flex-1 animate-pulse"
-                        style={{
-                          height: `${height}%`,
-                          animationDelay: `${index * 100}ms`,
-                          transform: `translateY(${scrollY * 0.02}px)`,
-                        }}></div>
-                    )
-                  )}
-                </div>
-
-                <div className="flex justify-between text-xs text-muted-foreground mt-3">
-                  <span>Jan</span>
-                  <span>Feb</span>
-                  <span>Mar</span>
-                  <span>Apr</span>
-                  <span>May</span>
-                  <span>Jun</span>
-                </div>
-              </Card>
-            </div>
-
-            {/* Metrics */}
-            <div className="space-y-4">
-              <Card className="bg-card/90 border-border backdrop-blur-sm p-4 hover:bg-card/95 transition-all duration-300 hover:scale-105">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-sm text-muted-foreground">
-                      Current Price
-                    </div>
-                    <div className="text-xl font-bold text-primary animate-pulse">
-                      $0.00245
-                    </div>
-                  </div>
-                  <Activity className="w-8 h-8 text-green-400" />
-                </div>
-              </Card>
-
-              <Card className="bg-card/90 border-border backdrop-blur-sm p-4 hover:bg-card/95 transition-all duration-300 hover:scale-105">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-sm text-muted-foreground">
-                      24h Volume
-                    </div>
-                    <div className="text-xl font-bold text-primary animate-pulse delay-200">
-                      $1.2M
-                    </div>
-                  </div>
-                  <TrendingUp className="w-8 h-8 text-primary" />
-                </div>
-              </Card>
-
-              <Card className="bg-card/90 border-border backdrop-blur-sm p-4 hover:bg-card/95 transition-all duration-300 hover:scale-105">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-sm text-muted-foreground">
-                      All Time High
-                    </div>
-                    <div className="text-xl font-bold text-primary animate-pulse delay-300">
-                      $0.00892
-                    </div>
-                  </div>
-                  <Rocket className="w-8 h-8 text-secondary" />
-                </div>
-              </Card>
-            </div>
-          </div>
+      <section className="py-20 px-4 h-screen relative z-10">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6">
+            About ngabowi
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Visual breakdown of our fair and transparent token allocation
+          </p>
+        </div>
+        <div data-aos="fade-up">
+          <img
+            src="/chuby-removebg-preview.png"
+            alt=""
+            className="mx-auto animate-fade-in-up"
+          />
         </div>
       </section>
 
