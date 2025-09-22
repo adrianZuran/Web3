@@ -221,7 +221,7 @@ export default function NgabOwiHome() {
 
           {/* Grid Card */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up">
+            <Card data-aos="fade-up" className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
               <CardHeader>
                 <CardTitle className="flex items-center text-primary">
                   <Users className="mr-2 h-5 w-5" />
@@ -236,7 +236,7 @@ export default function NgabOwiHome() {
               </CardContent>
             </Card>
 
-            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up delay-200">
+            <Card data-aos="fade-up" className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
               <CardHeader>
                 <CardTitle className="flex items-center text-primary">
                   <TrendingUp className="mr-2 h-5 w-5" />
@@ -251,7 +251,7 @@ export default function NgabOwiHome() {
               </CardContent>
             </Card>
 
-            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up delay-300">
+            <Card data-aos="fade-up" className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
               <CardHeader>
                 <CardTitle className="flex items-center text-primary">
                   <Rocket className="mr-2 h-5 w-5" />
@@ -266,7 +266,7 @@ export default function NgabOwiHome() {
               </CardContent>
             </Card>
 
-            <Card className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 animate-fade-in-up delay-400">
+            <Card data-aos="fade-up" className="bg-card/90 border-border backdrop-blur-sm hover:bg-card/95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/20">
               <CardHeader>
                 <CardTitle className="flex items-center text-primary">
                   <Shield className="mr-2 h-5 w-5" />
@@ -297,7 +297,8 @@ export default function NgabOwiHome() {
           <img
             src="/chuby-removebg-preview.png"
             alt=""
-            className="mx-auto animate-fade-in-up"
+            width={100}
+            className="mx-auto animate-fade-in-up w-auto"
           />
         </div>
       </section>
